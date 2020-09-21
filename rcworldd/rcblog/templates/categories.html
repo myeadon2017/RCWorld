@@ -2,14 +2,14 @@
 
 {% block content %}
 
+{% if category_posts %}
 
+    <h1>{{ cats }}</h1>
 
-<h1>Post</h1>
+    <ul>
+    {% for post in category_posts %}
+    <li><a href="{% url 'article-detail' post.pk %}">{{ post.title }}</a>
 
-<ul>
-{% for post in object_list %}
-    <li><a href="{% url 'article-detail' post.pk %}">{{ post.title }}</a> -
-        <a href="{% url 'category' post.category|slugify %}">{{ post.category|title }}</a>
         - {{ post.author.first_name }} 
         {{ post.author.last_name }}
         - {{ post.post_date }} <small>
@@ -22,9 +22,13 @@
         {% endif %}
         
         </small> <br/> 
-        {{ post.snippet }}</li>
-{% endfor%}
-</ul>
+        {{ post.body|slice:":200"|safe }}</li>
+    {% endfor %}
+    </ul>
+
+{% else %}
+    <h2>Sorry this page does not exist...</h2>
+{% endif %}
 
 
 
