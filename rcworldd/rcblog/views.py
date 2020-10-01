@@ -37,6 +37,8 @@ class HomeView(ListView):
         context["cat-menu"] = cat_menu
         return context
 
+def ContactView(request):
+    return render(request, 'contact.html')
 
 def CategoryListView(request):
     cat_menu_list = Category.objects.all()
@@ -91,4 +93,6 @@ class DeletePostView(DeleteView):
     model = Post
     template_name = 'delete_post.html'
     success_url = reverse_lazy('home')
+
+
     

@@ -5,6 +5,7 @@
 {% if user.is_authenticated %}
     {% if user.id == post.author.id or user.username == 'admin' %}
         <h1>Delete Post...</h1>
+        <hr class="my-4">
         <br/><br/>
         <h3>Delete: {{ post.title }}</h3>
 

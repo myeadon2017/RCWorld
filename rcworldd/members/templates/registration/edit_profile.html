@@ -2,9 +2,10 @@
 {% block title %}Edit Profile{% endblock %}
 {% block content %}
 
-
+{% if user.username == 'admin' %}
 
 <h1>Edit Profile...</h1>
+<hr class="my-4">
 <br/><br/>
 
 {{ user.profile.bio }}
@@ -18,8 +19,9 @@
         {{ form.as_p }}
         <button class='btn btn-secondary'>Update Profile</button>
     </div>
+    
+{% else %}
+Your not supposed to be here ....(and you know it).
 
-
-
-
+{% endif %}
 {% endblock %}
