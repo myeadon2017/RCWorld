@@ -1,1 +1,1 @@
-web: gunicorn rcworldd.wsgi
+web: gunicorn wsgi
